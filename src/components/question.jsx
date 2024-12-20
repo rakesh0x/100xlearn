@@ -1,73 +1,76 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-export function DropDownmenu() {
-  const [isOpen, setIsOpen] = useState(false); 
-  const [selectedOption, setSelectedOption] = useState("Select an option");
-
-  const options = [
-    "General Knowledge",
-    "Brain Teaser",
-    "Science and Technology",
-    "Sports",
-  ];
-
-  const toggleDropDown = () => {
-    setIsOpen(!isOpen);
-  };
-
-  const handleOptionClick = (option) => {
-    setSelectedOption(option); 
-    setIsOpen(false);
-  };
+export function DropDownMenu() {
+  const [isOpen, setIsOpen] = useState(false);
+  const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <div style={{ position: "relative", width: "200px" }}>
-      <button
-        onClick={toggleDropDown}
-        style={{
-          width: "100%",
-          padding: "10px",
-          backgroundColor: "#f0f0f0",
-          border: "1px solid #ccc",
-          borderRadius: "4px",
-          cursor: "pointer",
-        }}
-      >
-        {selectedOption}
-      </button>
-
+    <div className="relative inline-block text-left">
+      <div>
+        <button
+          onClick={toggleMenu}
+          className="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+        >
+          Options
+          <svg
+            className="w-5 h-5 ml-2 -mr-1"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            aria-hidden="true"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+      </div>
 
       {isOpen && (
-        <ul
-          style={{
-            position: "absolute",
-            top: "100%",
-            left: 0,
-            width: "100%",
-            padding: "10px",
-            backgroundColor: "#f0f0f0",
-            border: "1px solid #ccc",
-            borderRadius: "4px",
-            listStyle: "none",
-            boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
-          }}
+        <div
+          className="absolute right-0 z-10 w-56 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+          role="menu"
+          aria-orientation="vertical"
+          aria-labelledby="menu-button"
+          tabIndex="-1"
         >
-          {options.map((option, index) => (
-            <li
-              key={index}
-              onClick={() => handleOptionClick(option)}
-              style={{
-                padding: "10px",
-                cursor: "pointer",
-                borderBottom:
-                  index < options.length - 1 ? "1px solid #eee" : "none",
-              }}
+          <div className="py-1" role="none">
+            <a
+              href="#home"
+              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+              role="menuitem"
+              tabIndex="-1"
             >
-              {option}
-            </li>
-          ))}
-        </ul>
+              Home
+            </a>
+            <a
+              href="#quizzes"
+              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+              role="menuitem"
+              tabIndex="-1"
+            >
+              Quizzes
+            </a>
+            <a
+              href="#games"
+              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+              role="menuitem"
+              tabIndex="-1"
+            >
+              Games
+            </a>
+            <a
+              href="#profile"
+              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+              role="menuitem"
+              tabIndex="-1"
+            >
+              My Profile
+            </a>
+          </div>
+        </div>
       )}
     </div>
   );
 }
+
+
