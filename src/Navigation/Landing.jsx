@@ -9,7 +9,8 @@ export const Navbar = () => {
     <nav className="bg-gray-900 fixed w-full top-0 z-50 p-4 shadow-md">
       <div className="max-w-7xl mx-auto flex justify-around items-center">
         <button
-          className="text-gray-100 hover:text-indigo-500 text-lg font-semibold transition"
+          className="text-gray-100 hover:text-indigo-500 text-lg font-semibold transition "
+          onClick={() => navigate('/')}
         >
           Home
         </button>
@@ -21,13 +22,13 @@ export const Navbar = () => {
         </button>
         <button
           className="text-gray-100 hover:text-indigo-500 text-lg font-semibold transition"
-          onClick={() => navigate("/Games")}
+          onClick={() => navigate("/games")}
         >
           Games
         </button>
         <button
           className="text-gray-100 hover:text-indigo-500 text-lg font-semibold transition"
-          onClick={() => navigate("/Profile")}
+          onClick={() => navigate("/profile")}
         >
           My Profile
         </button>

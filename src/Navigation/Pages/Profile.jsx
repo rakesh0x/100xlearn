@@ -1,7 +1,5 @@
 import React from "react";
 
 export const Profile = () => {
-    return (
-        <h1>Profile</h1>
-    )
-}
+  return <div className="text-center mt-8 text-xl">Welcome to My Profile!</div>;
+};

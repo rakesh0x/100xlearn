@@ -9,17 +9,18 @@ import { Quizzes } from './Navigation/Pages/Quizzes';
 
 function App() {
   return (
-  <BrowserRouter>
     <>
-    <Navbar/>
-        <Routes>
-          <Route path='/quizzes' element={<Quizzes/>} />
-          <Route path='/Games' element={<Games/>} />
-          <Route path='/Profile' element={<Profile/>} />
-        </Routes>
-    <HeroSection/>
+      <BrowserRouter>
+      <Navbar/>
+        <div style={{ paddingTop: "4rem" }}></div>
+          <Routes>
+            <Route path='/' element={<HeroSection />} />
+            <Route path='/quizzes' element={<Quizzes/>} />
+            <Route path='/games' element={<Games/>} />
+            <Route path='/profile' element={<Profile/>} />
+          </Routes>
+      </BrowserRouter>
     </>
-  </BrowserRouter>
   );
 }
 

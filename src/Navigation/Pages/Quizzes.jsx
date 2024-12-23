@@ -1,7 +1,5 @@
 import React from "react";
 
 export const Quizzes = () => {
-    return (
-        <h1>All the Quizzes</h1>
-    )
-}
+  return <div className="text-center mt-8 text-xl">Welcome to Quizzes!</div>;
+};
