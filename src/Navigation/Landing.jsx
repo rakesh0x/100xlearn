@@ -6,7 +6,7 @@ export const Navbar = () => {
   const navigate = useNavigate();
 
   return (
-    <nav className="bg-gray-900 fixed w-full top-0 z-50 p-4 shadow-md">
+    <nav className="bg-gray-900 fixed w-full top-0 p-4 shadow-md">
       <div className="max-w-7xl mx-auto flex justify-around items-center">
         <button
           className="text-gray-100 hover:text-indigo-500 text-lg font-semibold transition "
