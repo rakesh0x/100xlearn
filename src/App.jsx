@@ -5,7 +5,7 @@ import { HeroSection } from './Navigation/Landing';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Profile } from './Navigation/Pages/Profile';
 import { Games } from './Navigation/Pages/Games';
-import { Quizzes } from './Navigation/Pages/Quizzes';
+import { Sidebar } from './Navigation/Pages/Quizzes';
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
         <div style={{ paddingTop: "4rem" }}></div>
           <Routes>
             <Route path='/' element={<HeroSection />} />
-            <Route path='/quizzes' element={<Quizzes/>} />
+            <Route path='/quizzes' element={<Sidebar/>} />
             <Route path='/games' element={<Games/>} />
             <Route path='/profile' element={<Profile/>} />
           </Routes>
@@ -23,6 +23,5 @@ function App() {
     </>
   );
 }
-
 
 export default App;
