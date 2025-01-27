@@ -1,63 +1,67 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { useState } from "react"
-
-import {
-  FaBars,
-  FaPlus,
-  FaFlask,
-  FaBook
-}from "react-icons/fa";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { FaBars, FaFlask, FaPlus, FaBook, FaTimes } from "react-icons/fa";
+import PropTypes from "prop-types";
 
-
-export const  Sidebar =  ({ children }) =>  {
-
-  const [ isOpen, setisOpen ] = useState(false);
+export const Sidebar = ({ children }) => {
+  const [isOpen, setIsOpen] = useState(false);
 
   const menuItems = [
-    { name: "Science",  icon: <FaFlask/> , path: "/sciencequiz"},
-    { name: "Mathematics", icon: <FaPlus/> ,  path: "/mathematicsquiz"},
-    { name: "General knwoledge", icon: <FaBook/> , path: "/generalknowledgequiz"},
-  ]
-  const Togglesidebar = () => {
-    if(isOpen) {
-      setisOpen(!isOpen)
-    }
+    { name: "Science", icon: <FaFlask />, path: "/sciencequiz" },
+    { name: "Mathematics", icon: <FaPlus />, path: "/mathematicsquiz" },
+    { name: "General Knowledge", icon: <FaBook />, path: "/generalknowledgequiz" },
+  ];
 
-  }
+  const toggleSidebar = () => {
+    setIsOpen(!isOpen);
+  };
 
   return (
-    <div className="container px-5 py-10 text-2xl" >
-      <div className="flex">
-        <div className={`sidebar ${isOpen ? "open" : ""}`}>
-            <div className="bar px-2 bg-color-white">
-              <button onClick={Togglesidebar}><FaBars/></button>
-            </div>
-              <div className="top_section py-10">
-                <h1>Subjects</h1>
-              </div>
-              {
-                menuItems.map(( item, index) => (
-                  <NavLink
-                    to={item.path}
-                    key={index}
-                    className="link"
-                    activeclassname="active"
-                  >
-                    <div key={index} className="px-2 py-3">
-                      <div className="items_icons">{item.icon}</div>
-                      <div className="link_text">{item.name}</div>
-                    </div>
-                  </NavLink>
-                ))
-              }
-          </div>
-          <main>{ children }</main>
-        </div>        
+    <div className="flex">
+      {/* Sidebar */}
+      <div
+        className={`${
+          isOpen ? "w-64" : "w-16"
+        } bg-gray-800 h-screen text-white transition-all duration-300`}
+      >
+        {/* Toggle Button */}
+        <div className="flex justify-between items-center p-4 border-b border-gray-700">
+          <h1 className={`${isOpen ? "block" : "hidden"} text-xl font-bold`}>
+            Subjects
+          </h1>
+          <button
+            onClick={toggleSidebar}
+            className="text-xl p-2 focus:outline-none hover:bg-gray-700 rounded"
+          >
+            {isOpen ? <FaTimes /> : <FaBars />}
+          </button>
+        </div>
+
+        {/* Menu Items */}
+        <nav className="mt-4">
+          {menuItems.map((item, index) => (
+            <NavLink
+              to={item.path}
+              key={index}
+              className="flex items-center gap-4 px-4 py-3 hover:bg-gray-700 rounded"
+              activeClassName="bg-gray-700"
+            >
+              <div className="text-lg">{item.icon}</div>
+              <span className={`${isOpen ? "block" : "hidden"}`}>{item.name}</span>
+            </NavLink>
+          ))}
+        </nav>
+      </div>
+
+      {/* Main Content */}
+      <main className="flex-1 p-4">{children}</main>
     </div>
-  )
-}
+  );
+};
+
+export default Sidebar;
+
+
 
 Sidebar.propTypes = {
   children: PropTypes.node.isRequired,
