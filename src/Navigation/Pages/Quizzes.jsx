@@ -35,7 +35,7 @@ export const ScienceQuiz = () => {
     ]); 
 
   return (
-    <div className="text-center justify-center text-2xl">
+    <div className="text-center justify-center text-2xl  ">
       <h1>Science Questions</h1>
       <ul>
         {questions.map((question, index) => (
