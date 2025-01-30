@@ -7,6 +7,7 @@ import { Profile } from './Navigation/Pages/Profile';
 import { Games } from './Navigation/Pages/Games';
 import { Sidebar } from './Navigation/Sidebar';
 import { ScienceQuiz } from './Navigation/Pages/Quizzes';
+import { MathematicsQuiz } from './Navigation/Pages/Quizzes';
 
 function App() {
   return (
@@ -16,14 +17,25 @@ function App() {
         <div style={{ paddingTop: "4rem" }}></div>
           <Routes>
             <Route path='/' element={<HeroSection />} />
-            <Route path='/quizzes' element = {
-              <div className='flex min-h-screen'>
-                <div className='w-1/4 bg-white p-4'>
+            <Route path='/sciencequiz' element = {
+              <div className=' flex font-bold min-h-screen bg-gradient-to-r from-blue-900 to-purple-900 '>
+                <div className='w-1/4 p-4'>
                   <Sidebar/>
                 </div>
 
-                <div className='w-2/4 p-6  bg-indigo-500 text-white'>
+                <div className='w-2/4 p-6 text-white'>
                   <ScienceQuiz/>
+                </div>
+              </div>
+            }></Route>
+            <Route path='/mathematicsquiz' element= {
+              <div className=' flex font-bold bg-gradient-to-b from-blue-900 to-purple-900'>
+                <div className='w-1/4 p-4'>
+                  <Sidebar/>
+                </div>
+
+                <div className='w-2/4 p-6 text-white'>
+                  <MathematicsQuiz/>
                 </div>
               </div>
             }></Route>

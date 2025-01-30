@@ -16,7 +16,7 @@ export const Navbar = () => {
         </button>
         <button
           className="text-gray-100 hover:text-indigo-500 text-lg font-semibold transition"
-          onClick={() => navigate("/quizzes")}
+          onClick={() => navigate("/sciencequiz")}
         >
           Quizzes
         </button>
