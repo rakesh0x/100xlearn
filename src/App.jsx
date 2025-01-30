@@ -7,7 +7,7 @@ import { Profile } from './Navigation/Pages/Profile';
 import { Games } from './Navigation/Pages/Games';
 import { Sidebar } from './Navigation/Sidebar';
 import { ScienceQuiz } from './Navigation/Pages/Quizzes';
-import { MathematicsQuiz } from './Navigation/Pages/Quizzes';
+import { MathematicsQuiz } from './Navigation/Pages/Mathsquiz';
 
 function App() {
   return (
