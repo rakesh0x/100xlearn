@@ -9,6 +9,7 @@ import { Sidebar } from './Navigation/Sidebar';
 import { ScienceQuiz } from './Navigation/Pages/Quizzes';
 import { MathematicsQuiz } from './Navigation/Pages/Mathsquiz';
 
+
 function App() {
   return (
     <>
@@ -21,6 +22,7 @@ function App() {
               <div className=' flex font-bold min-h-screen bg-gradient-to-r from-blue-900 to-purple-900 '>
                 <div className='w-1/4 p-4'>
                   <Sidebar/>
+        
                 </div>
 
                 <div className='w-2/4 p-6 text-white'>
