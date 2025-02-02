@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import axios from "axios";
 import Confetti from "react-confetti";
 import { useWindowSize } from "react-use";
@@ -25,50 +25,81 @@ export const ScienceQuiz = () => {
     fetchQuestions();
   }, []);
 
+  const ConfettiTop = () => (
+    <Confetti
+      width={width}
+      height={height}
+      recycle={false} 
+      numberOfPieces={500} 
+      gravity={0.2} 
+    />
+  );
+
   if (loading)
     return <div className="text-center justify-center text-2xl py-14">Loading...</div>;
-
-  const handleClick = (selected, correctAnswer) => {
-    if (selected === correctAnswer) {
-      setShowConfetti(true);
-      setTimeout(() => {
-        setShowConfetti(false);
-      }, 4500);
-    } else {
-      setShowConfetti(false);
-      alert("Incorrect Option")
-    }
-  };
 
   return (
     <div className="text-center justify-center text-2xl p-4">
       <h1 className="text-3xl font-bold mb-4">Computer Science Questions</h1>
-      
-      {questions.map((question, index) => {
-        const options = [...question.incorrect_answers, question.correct_answer]
-          .sort(() => Math.random() - 0.5); 
+      {questions.map((question, index) => (
+          <QuizQuestion
+          key={index}
+          question={question.question}
+          correctAnswer={question.correct_answer}
+          incorrectAnswers={question.incorrect_answers}
+          setShowConfetti={setShowConfetti}
+        />
+      ))}
+      {showConfetti && <ConfettiTop />}
+    </div>
+  );
+};
 
-        return (
-          <div key={index} className="mb-9 p-8 border border-spacing-5 rounded-3xl shadow-2xl hover:scale-y-80">
-            <p className="text-xl font-semibold">{index + 1}. {question.question}</p>
-            
-            <div className="mt-3 flex flex-wrap gap-3 justify-center">
-              {options.map((option, i) => (
-                <button
-                  key={i}
-                  className="px-4 py-2 text-white bg-blue-500 rounded-lg hover:bg-blue-700 transition"
-                  onClick={() => handleClick(option, question.correct_answer)}
-                >
-                  {option}
-                </button>
-              ))}
-            </div>
-          </div>
-        );
-      })}
-      
+const QuizQuestion = ({ question, correctAnswer, incorrectAnswers, setShowConfetti }) => {
+  const [selectedOption, setSelectedOption] = useState(null);
+  const [isCorrect, setIsCorrect] = useState(false);
 
-      {showConfetti && <Confetti width={width} height={height} />}
+  const options = [...incorrectAnswers, correctAnswer].sort(() => Math.random() - 0.5);
+
+  const handleClick = useCallback(
+    (option) => {
+      setSelectedOption(option);
+      const correct = option === correctAnswer;
+      setIsCorrect(correct);
+      if (correct) {
+        setShowConfetti(true);
+        setTimeout(() => setShowConfetti(false), 8000);
+      }
+    },
+    [correctAnswer, setShowConfetti]
+  );
+
+  return (
+    <div className="mb-9 p-8 border border-spacing-5 rounded-3xl shadow-2xl hover:scale-y-80">
+      <p className="text-xl font-semibold">{question}</p>
+      <div className="mt-3 flex flex-wrap gap-3 justify-center">
+        {options.map((option, i) => (
+          <button
+            key={i}
+            className={`px-4 py-2 text-white rounded-lg transition ${
+              selectedOption === option
+                ? isCorrect
+                  ? "bg-green-500" 
+                  : "bg-red-500" 
+                : "bg-blue-500 hover:bg-blue-700" 
+            }`}
+            onClick={() => handleClick(option)}
+            disabled={selectedOption !== null}
+          >
+            {option}
+          </button>
+        ))}
+      </div>
+      {selectedOption && (
+        <p className={`mt-4 font-semibold ${isCorrect ? "text-green-500" : "text-red-500"}`}>
+          {isCorrect ? "Correct! 🎉" : "Incorrect! ❌"}
+        </p>
+      )}
     </div>
   );
 };
