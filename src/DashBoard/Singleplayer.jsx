@@ -45,7 +45,7 @@ export const SubjectsCard2 = () => {
             <motion.div 
                 whileHover={{ scale: 1.1, boxShadow: "0 0 8px rgba(255, 255, 0, 0.5)" }}
                 whileTap={{ scale: 0.9 }} 
-                className="max-w-sm rounded-lg hover:bg-gray-700 shadow-lg bg-white transition duration-300"> 
+                className="max-w-sm rounded-lg hover:bg-color-white shadow-lg bg-white transition duration-300"> 
                 
                 <img className="w-full h-48 object-cover" src={gk} alt="General Knowledge" />
 

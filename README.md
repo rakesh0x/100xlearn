@@ -46,7 +46,7 @@ Ensure you have the following installed:
    yarn start
    ```
 
-4. Open the app in your browser at [http://localhost:3000](http://localhost:3000).
+4. Open the app in your browser at [http://localhost:3000](http://localhostFD:5173).
 
 ---
 

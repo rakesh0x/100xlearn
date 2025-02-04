@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { FaBars, FaFlask, FaPlus, FaBook, FaTimes } from "react-icons/fa";
+import { FaBars, FaHome, FaTimes,    } from "react-icons/fa";
 import PropTypes from "prop-types";
+import LeaderboardIcon from '@mui/icons-material/Leaderboard';
+import GroupAddIcon from '@mui/icons-material/GroupAdd';
 
 export const Sidebar = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const menuItems = [
-    { name: "Science", icon: <FaFlask />, path: "/sciencequiz" },
-    { name: "Mathematics", icon: <FaPlus />, path: "/mathematicsquiz" },
-    { name: "General Knowledge", icon: <FaBook />, path: "/generalknowledgequiz" },
+    { name: "Home", icon: <FaHome />, path: "/" },
+    { name: "LeaderBoard", icon: <LeaderboardIcon/>, path: "/leaderboard" },
+    { name: "Multiplayer", icon: <GroupAddIcon/>, path: "/MultiPlayer"}
   ];              
 
   const toggleSidebar = () => {

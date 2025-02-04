@@ -3,12 +3,11 @@ import './App.css';
 import { Navbar } from './Navigation/Landing';
 import { LandingPage } from './Navigation/Landing';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Profile } from './Navigation/Pages/Profile';
+import { Leaderboard } from './Navigation/Pages/Leaderboard';
 import { Sidebar } from './Navigation/Sidebar';
-import { Mathsquiz } from './Navigation/Pages/Mathsquiz';
-import { motion } from 'framer-motion';
 import { SubjectsCard } from './DashBoard/Singleplayer';
 import { SubjectsCard2 } from './DashBoard/Singleplayer';
+import { SinglePlayer } from './Navigation/Pages/Quizzes';
 
 function App() {
   return (
@@ -20,46 +19,42 @@ function App() {
             <Route path='/' element={
                 <LandingPage /> 
             }/>
-            <Route path='/SinglePlayer' element = {
-              <div className=' flex font-bold min-h-screen bg-gradient-to-r from-purple-600 to-blue-500 '>
+            <Route path='/singleplayer' element = {
+              <div className=' flex font-bold min-h-screen bg-gradient-to-r from-purple-600 to-blue-500 flex-grid '>
                 <div className='w-1/4 p-4'>
                    <Sidebar/>
                 </div>
 
-                <div className='w-2/4 p-4'>
+                <div className='w-2/4 p-4 flex'>
                    <SubjectsCard2/>
                 </div>
-                
-                <div className='w-2/4 p-4'>
+                <div className='w-2/4 p-4 flex'>
                   <SubjectsCard/>
                 </div>
               </div>
             }></Route>
-            <Route path='/generalknowledgequiz' element= {
-              <div className=' flex font-bold  min-h-screen bg-gradient-to-b from-purple-600 to-blue-500 smoo'>
+            <Route path='/computerscience' element= {
+              <div className=' flex font-bold  min-h-screen bg-gradient-to-b from-purple-600 to-blue-500 justify-center'>
                 <div className='w-1/4 p-4'>
-                  <Sidebar/>
-                </div>
-
-                <div className='w-2/4 p-6 text-white'>
-                  <Mathsquiz/>
+                  <SinglePlayer/>
                 </div>
               </div>
             }></Route>
             <Route path='/MultiPlayer' element={
               <div className=' flex font-bold min-h-screen bg-gradient-to-r from-purple-600 to-blue-500 '>
-                <div className='w-1/4 p-4'>
-                  <motion.div 
-                  initial={{ opacity: 0, y: -50}}
-                  animate={{ opacity: 1, y: 0}}
-                  transition={{duration: 1}}
-                  >
+                <div className='w-1/4 p-4'>            
                    <Sidebar/>
-                  </motion.div>
                 </div>
               </div>
               } />
-            <Route path='/profile' element={<Profile/>} />
+            <Route path='/leaderboard' element={<Leaderboard/>} />
+            <Route path='/generalknowledge' element={
+            <div className='flex font-seibold min-h-screen bg-gradient-to-b from-purple-600 to-blue-500 justify-center'>
+              <div className='w-2/4 p-4 '>
+                <SinglePlayer/> 
+              </div>
+            </div>
+            } /> 
           </Routes>
       </BrowserRouter>
     </>

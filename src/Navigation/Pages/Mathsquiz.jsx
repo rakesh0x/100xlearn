@@ -3,7 +3,7 @@ import axios from "axios";
 import Confetti from "react-confetti";
 import { useWindowSize } from "react-use";
 
-export const Mathsquiz = () => {
+export const GeneralKnowledge = () => {
   const [questions, setQuestions] = useState([]);
   const [loading, setLoading] = useState(true);
   const { width, height } = useWindowSize();
