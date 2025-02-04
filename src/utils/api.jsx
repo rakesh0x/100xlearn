@@ -1,1 +1,0 @@
-// Api of the Game trivia will be stored here
