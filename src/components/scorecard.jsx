@@ -1,1 +1,0 @@
-// Scorecard after the game and the leaderbaord will be shown here
