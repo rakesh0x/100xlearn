@@ -11,7 +11,6 @@ export const Navbar = () => {
   return (
     <nav className="bg-gray-900 fixed w-full top-0 p-4 shadow-md ">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
-        {/* Logo */}
         <button
           className="text-gray-100 text-3xl font-bold"
           onClick={() => navigate("/")}
@@ -19,7 +18,6 @@ export const Navbar = () => {
           100xLearn
         </button>
         
-        {/* Desktop Menu */}
         <div className="hidden md:flex space-x-6">
           <button
             className="text-gray-100 hover:text-indigo-500 text-lg font-semibold transition"
@@ -47,7 +45,6 @@ export const Navbar = () => {
           </button>
         </div>
         
-        {/* Mobile Menu Button */}
         <button
           className="md:hidden text-gray-100"
           onClick={() => setMenuOpen(!menuOpen)}
@@ -56,7 +53,6 @@ export const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Menu */}
       {menuOpen && (
         <motion.div 
           initial={{ opacity: 0, y: -20 }}
@@ -107,7 +103,6 @@ export const LandingPage = () => {
         {darkMode ? "Light Mode" : "Dark Mode"}
       </button>
 
-      {/* Hero Section */}
       <motion.div
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
@@ -126,7 +121,6 @@ export const LandingPage = () => {
         </motion.button>
       </motion.div>
 
-      {/* How to Play Section */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -141,7 +135,6 @@ export const LandingPage = () => {
         </ul>
       </motion.div>
 
-      {/* Leaderboard Preview Section */}
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}

@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import LeaderboardIcon from '@mui/icons-material/Leaderboard';
 import GroupAddIcon from '@mui/icons-material/GroupAdd';
 
+
 export const Sidebar = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -44,7 +45,6 @@ export const Sidebar = ({ children }) => {
           </button>
         </div>
 
-        {/* Sidebar Menu */}
         <nav className="mt-4">
           {menuItems.map((item, index) => (
             <NavLink

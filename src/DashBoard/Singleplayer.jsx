@@ -2,8 +2,11 @@ import React from "react";
 import cardcs from '../assets/cardcs.jpg';
 import gk from '../assets/gk.jpg';
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 export const SubjectsCard = () => {
+    const Navigate = useNavigate();
+
     return (
         <div className="flex flex-col items-center mb-15 justify-center p-4">
             <div className="text-center mb-4">
@@ -25,7 +28,8 @@ export const SubjectsCard = () => {
                 </div>
 
                 <div className="px-6 pb-4 flex justify-center">
-                    <button className="bg-blue-600 text-white font-semibold px-6 py-2 rounded-full hover:bg-blue-800 transition">
+                    <button className="bg-blue-600 text-white font-semibold px-6 py-2 rounded-full hover:bg-blue-800 transition"
+                    onClick={() => Navigate('/computerscience')}>
                         Play Now
                     </button>
                 </div>
@@ -36,6 +40,9 @@ export const SubjectsCard = () => {
 
 
 export const SubjectsCard2 = () => {
+    
+    const Navigate = useNavigate();
+
     return (
         <div className="flex flex-col items-center mb-15 justify-center p-4">
             <div className="text-center mb-4">
@@ -57,7 +64,8 @@ export const SubjectsCard2 = () => {
                 </div>
 
                 <div className="px-6 pb-4 flex justify-center">
-                    <button className="bg-blue-600 text-white font-semibold px-6 py-2 rounded-full hover:bg-blue-800 transition">
+                    <button className="bg-blue-600 text-white font-semibold px-6 py-2 rounded-full hover:bg-blue-800 transition"
+                    onClick={() => Navigate('/generalknowledge')}>
                         Play Now
                     </button>
                 </div>

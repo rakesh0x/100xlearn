@@ -12,7 +12,6 @@ export const SinglePlayer = () => {
  
 
   useEffect(() => {
-    // Fetch Questions
     const fetchQuestions = async () => {
       try {
         const response = await axios.get(
@@ -72,7 +71,7 @@ export const SinglePlayer = () => {
                 >
                   {option}
                 </button>
-              ))}
+              ))};
             </div>
           </div>
         );
