@@ -14,33 +14,20 @@ import { SignupNavbar } from './Navigation/authContext/Signup-signin';
 import { AuthHandler  } from './Navigation/authContext/ifAuth';
 
 function App() {
-
-  const IfAuthticated = () => {
-    const {  isAuthenticated } = useAuth0();
-    {
-      isAuthenticated ? (
-        <LandingPage/>
-      ) : (
-        <LoginForm/>
-      )
-
-    }
-  }
-
   return (
     <>
       <Navbar/>
           <div style={{ paddingTop: "3em" }}></div>
             <Routes>
-              <Route path='user' isAuthenticated element = {
+              <Route path='user' AuthHandler  element = {
                 <div>
                   <SignupNavbar/>
                 </div>
               }></Route>
-                <Route path='/' isAuthenticated element={
+                <Route path='/' AuthHandler element={
                     <LandingPage />
                 }/>
-                <Route path='/singleplayer' element = {
+                <Route path='/singleplayer' AuthHandler element = {
                   <div className=' flex font-bold min-h-screen bg-gradient-to-r from-purple-600 to-blue-500 flex-grid '>
                     <div className='w-1/4 p-4'>
                       <Sidebar/>
@@ -53,14 +40,14 @@ function App() {
                     </div>
                   </div>
                 }></Route>
-                <Route path='/computerscience' isAuthenticated element= {
+                <Route path='/computerscience' AuthHandler  element= {
                   <div className=' flex font-bold  min-h-screen bg-gradient-to-b from-purple-600 to-blue-500 justify-center'>
                     <div className='w-1/4 p-4'>
                       <SinglePlayer/>
                     </div>
                   </div>
                 }></Route>
-                <Route path='/MultiPlayer' element={
+                <Route path='/MultiPlayer' AuthHandler  element={
                   <div className=' flex font-bold min-h-screen bg-gradient-to-b from-purple-600 to-blue-500 '>
                     <div className='w-1/4 p-4'>            
                       <Sidebar/>
@@ -71,7 +58,7 @@ function App() {
                     </div>
                   </div>
                   } />
-                <Route path='/leaderboard' isAuthenticated element={
+                <Route path='/leaderboard' AuthHandler  element={
                   <div className='flex flex-col min-h-screen bg-gradient-to-b from-purple-600 to-blue-500'>
                     <div className='w-1/4 p-4'>
                     <Sidebar/>
@@ -79,7 +66,7 @@ function App() {
                   </div>
                 }
                 />
-                <Route path='/generalknowledge' isAuthenticated  element={
+                <Route path='/generalknowledge' AuthHandler  element={
                 <div className='flex font-seibold min-h-screen bg-gradient-to-b from-purple-600 to-blue-500 justify-center'>
                   <div className='w-2/4 p-4 '>
                     <SinglePlayer/> 

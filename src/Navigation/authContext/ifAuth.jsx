@@ -1,9 +1,22 @@
 import { Auth0Provider } from '@auth0/auth0-react';
 
-const domain = process.env.REACT_APP_AUTH0_DOMAIN;
-const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
+const domain = import.meta.env.REACT_APP_AUTH0_DOMAIN;
+const clientId = import.meta.env.REACT_APP_AUTH0_CLIENT_ID;
 
 export const AuthHandler = () => {
+
+  const IfAuthticated = () => {
+    const {  isAuthenticated } = useAuth0();
+    {
+      isAuthenticated ? (
+        <LandingPage/>
+      ) : (
+        <LoginForm/>
+      )
+
+    }
+  }
+
   return (
     <Auth0Provider
       domain={domain}
@@ -23,4 +36,3 @@ export const AuthHandler = () => {
     </Auth0Provider>
   );
 }
-
