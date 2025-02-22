@@ -13,7 +13,7 @@ export const CallbackPage = () => {
     };
 
     processCallback();
-  }, []);
+  });
 
   return <div>Processing login...</div>;
 };
