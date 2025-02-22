@@ -183,7 +183,7 @@ export const Landing = () => {
 
           <div className="hidden md:flex items-center space-x-6">
             {[
-              { title: "Home", path: "/" },
+              { title: "Home", path: "/landing" },
               { title: "Quizzes", path: "/singleplayer" },
               { title: "Multiplayer Games", path: "/multiplayer" },
               { title: "LeaderBoard", path: "/leaderboard" }
