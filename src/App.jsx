@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path='/landing' element={<Landing />} />
+        <Route path='/' element={<Landing />} />
         
         <Route path="/singleplayer" element={
           <div className="flex font-bold min-h-screen bg-gradient-to-r  from-indigo-700 via-blue-600 to-blue-400">
@@ -74,5 +74,4 @@ export default App;
 
 
 
-// Error!Payload validation error: 'Object didn't pass validation for format absolute-https-uri-or-empty: https://localhost:5173/landing' on property initiate_login_uri (Initiate login uri, must be https).
 
