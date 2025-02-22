@@ -2,10 +2,11 @@ import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import Confetti from "react-confetti";
 import { useWindowSize } from "react-use";
+import { Brain } from "lucide-react";
 
 export const SinglePlayer = () => {
   const [questions, setQuestions] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setLoading] = useState(true);
   const { width, height } = useWindowSize();
   const [showConfetti, setShowConfetti] = useState(false);
   const [selectedAnswers, setSelectedAnswers] = useState({});
@@ -38,8 +39,30 @@ export const SinglePlayer = () => {
     };
   }
 
-  if (loading) return <div className="text-center text-2xl py-14">Loading...</div>;
-
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-indigo-700 via-blue-600 to-blue-400">
+        <div className="relative">
+          <div className="absolute inset-0 w-20 h-20 border-4 border-t-white/20 border-r-white/20 border-b-white/20 border-l-white rounded-full animate-spin" />
+          <div className="absolute inset-0 w-20 h-20 rounded-full bg-white/10 animate-ping" />
+          <div className="relative w-20 h-20 rounded-full bg-white/90 flex items-center justify-center">
+            <Brain className="w-10 h-10 text-indigo-600 animate-bounce" />
+          </div>
+        </div>
+        <div className="mt-8 text-2xl font-bold text-white flex items-center space-x-1">
+          <span>Loading</span>
+          <span className="flex space-x-1">
+            <span className="animate-bounce delay-100">.</span>
+            <span className="animate-bounce delay-200">.</span>
+            <span className="animate-bounce delay-300">.</span>
+          </span>
+        </div>
+        <p className="mt-4 text-white/80 text-lg animate-pulse">
+          Preparing your quiz experience
+        </p>
+      </div>
+    );
+  }
   return (
     <div className="text-center p-4">
       <h1 className="text-3xl font-bold mb-4">Single Players Quiz</h1>

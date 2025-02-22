@@ -8,8 +8,8 @@ export const GeneralKnowledge = () => {
   const [loading, setLoading] = useState(true);
   const { width, height } = useWindowSize();
   const [showConfetti, setShowConfetti] = useState(false);
-  const [isCorrect, setIsCorrect] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(null);
+  const [selectedOptions, setSelectedOptions] = useState({});
+  const [feedback, setFeedback] = useState({});
 
   useEffect(() => {
     const fetchQuestions = async () => {
@@ -19,7 +19,7 @@ export const GeneralKnowledge = () => {
         );
         setQuestions(response.data);
       } catch (error) {
-          console.log("Error fetching the question :", error);
+        console.log("Error fetching the question :", error);
       } finally {
         setLoading(false);
       }
@@ -28,27 +28,24 @@ export const GeneralKnowledge = () => {
   }, []);
 
   if (loading)
-    return <div className="text-center justify-center text-2xl py-4">Loading...</div>;
+    return <div className="text-center text-2xl py-4">Loading...</div>;
 
-  const handleClick = (selected, correctAnswer) => {
+  const handleClick = (index, selected, correctAnswer) => {
+    if (selectedOptions[index] !== undefined) return;
+
+    setSelectedOptions((prev) => ({ ...prev, [index]: selected }));
     if (selected === correctAnswer) {
       setShowConfetti(true);
-      setSelectedOption(selected);
-      setIsCorrect(true);
-      setTimeout(() => {
-        setShowConfetti(false);
-      }, 4500);
+      setFeedback((prev) => ({ ...prev, [index]: "Correct! 🎉" }));
+      setTimeout(() => setShowConfetti(false), 3000);
     } else {
-      setShowConfetti(false);
-      setSelectedOption(selected);
-      setIsCorrect(false);
-      alert("Incorrect Answer");
+      setFeedback((prev) => ({ ...prev, [index]: "Incorrect ❌" }));
     }
   };
 
   return (
-    <div className="text-center justify-center text-2xl p-4">
-      <p className="font-semibold text-3xl mb-4">General Knowledge</p>
+    <div className="text-center text-2xl p-6 max-w-4xl mx-auto">
+      <p className="font-bold text-4xl mb-6 text-blue-600">General Knowledge Quiz</p>
       {questions.map((q, index) => {
         const Options = [...q.incorrectAnswers, q.correctAnswer].sort(
           () => Math.random() - 0.5
@@ -57,42 +54,36 @@ export const GeneralKnowledge = () => {
         return (
           <div
             key={index}
-            className="mb-9 font-semibold p-8 shadow-2xl hover:scale-80 rounded-2xl border border-spacing-5"
+            className="mb-8 p-6 bg-white shadow-xl rounded-xl border border-gray-200 hover:shadow-2xl transition-all duration-300"
           >
-            <p className="font-semibold text-xl">
+            <p className="font-semibold text-xl text-gray-700">
               {index + 1}. {q.question}
             </p>
 
-            <div className="mt-3 flex flex-wrap gap-3 justify-center">
+            <div className="mt-4 flex flex-wrap gap-4 justify-center">
               {Options.map((option, i) => (
                 <button
                   key={i}
-                  className={`px-4 py-2 text-white rounded-lg transition ${
-                    selectedOption === option
-                      ? isCorrect
-                        ? "bg-green-500"
-                        : "bg-red-500"
-                      : "bg-blue-500 hover:bg-blue-700"
-                  }`}
-                  onClick={() => handleClick(option, q.correctAnswer)}
-                  disabled={selectedOption !== null}
+                  className={`px-5 py-2 text-lg font-medium rounded-lg transition-all duration-200 shadow-md focus:outline-none
+                    ${selectedOptions[index] === option ? 
+                      (option === q.correctAnswer ? "bg-green-500 text-white" : "bg-red-500 text-white") 
+                      : "bg-blue-500 text-white hover:bg-blue-700"}`}
+                  onClick={() => handleClick(index, option, q.correctAnswer)}
+                  disabled={selectedOptions[index] !== undefined}
                 >
                   {option}
                 </button>
               ))}
             </div>
+            {feedback[index] && (
+              <p className={`mt-4 text-xl font-semibold ${feedback[index] === "Correct! 🎉" ? "text-green-600" : "text-red-600"}`}>
+                {feedback[index]}
+              </p>
+            )}
           </div>
         );
       })}
-      {showConfetti && (
-        <Confetti
-          width={width}
-          height={height}
-          recycle={true}
-          numberOfPieces={500}
-          gravity={0.1}
-        />
-      )}
+      {showConfetti && <Confetti width={width} height={height} recycle={false} numberOfPieces={200} gravity={0.2} />} 
     </div>
   );
 };

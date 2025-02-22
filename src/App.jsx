@@ -1,69 +1,71 @@
 import React from 'react';
 import './index.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { Sidebar } from './Navigation/Sidebar';
-import { SubjectsCard } from './DashBoard/Singleplayer';
-import { SubjectsCard2 } from './DashBoard/Singleplayer';
+import { SubjectsCard, SubjectsCard2 } from './DashBoard/Singleplayer';
 import { SinglePlayer } from './Navigation/Pages/Quizzes';
 import { LiveCompetetion } from './Navigation/Pages/MultiplayerGames';
-import { useAuth0 } from '@auth0/auth0-react';
-import { Landing } from "./Navigation/Landing"
+import { Landing } from "./Navigation/Landing";
 
 function App() {
   return (
     <>
-      <div style={{ paddingTop: "3em" }}></div>
-        <Routes>
-            <Route path='/' element={
-                <Landing />
-            }/>
-            <Route path='/singleplayer' element = {
-              <div className=' flex font-bold min-h-screen bg-gradient-to-r from-purple-600 to-blue-500 flex-grid '>
-                <div className='w-1/4 p-4'>
-                  <Sidebar/>
-                </div>
-                <div className='w-2/4 p-4 flex'>
-                  <SubjectsCard2/>
-                </div>
-                <div className='w-2/4 p-4 flex'>
-                  <SubjectsCard/>
+      <Routes>
+        <Route path='/' element={<Landing />} />
+        
+        <Route path="/singleplayer" element={
+          <div className="flex font-bold min-h-screen bg-gradient-to-r  from-indigo-700 via-blue-600 to-blue-400">
+              <Sidebar />
+            <div className="w-3/4 p-8 flex gap-8">
+              <div className="w-1/2">
+                <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 shadow-2xl hover:shadow-purple-500/50 transition-shadow duration-300">
+                  <SubjectsCard2 />
                 </div>
               </div>
-            }></Route>
-            <Route path='/computerscience'  element= {
-              <div className=' flex font-bold  min-h-screen bg-gradient-to-b from-purple-600 to-blue-500 justify-center'>
-                <div className='w-1/4 p-4'>
-                  <SinglePlayer/>
+              <div className="w-1/2">
+                <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 shadow-2xl hover:shadow-blue-500/50 transition-shadow duration-300">
+                  <SubjectsCard />
                 </div>
-              </div>
-            }></Route>
-            <Route path='/MultiPlayer'  element={
-              <div className=' flex font-bold min-h-screen bg-gradient-to-b from-purple-600 to-blue-500 '>
-                <div className='w-1/4 p-4'>            
-                  <Sidebar/>
-                </div>
-
-                <div className='w-2/4 p-4'>
-                  <LiveCompetetion/>
-                </div>
-              </div>
-              } />
-            <Route path='/leaderboard' AuthHandler  element={
-              <div className='flex flex-col min-h-screen bg-gradient-to-b from-purple-600 to-blue-500'>
-                <div className='w-1/4 p-4'>
-                <Sidebar/>
-                </div>
-              </div>
-            }
-            />
-            <Route path='/generalknowledge' AuthHandler  element={
-            <div className='flex font-seibold min-h-screen bg-gradient-to-b from-purple-600 to-blue-500 justify-center'>
-              <div className='w-2/4 p-4 '>
-                <SinglePlayer/> 
               </div>
             </div>
-            } /> 
-          </Routes>
+          </div>
+        } />
+        
+        <Route path='/computerscience' element={
+          <div className='flex font-bold min-h-screen bg-gradient-to-b  from-indigo-700 via-blue-600 to-blue-400 justify-center'>
+            <div className='w-1/4 p-4'>
+              <SinglePlayer />
+            </div>
+          </div>
+        } />
+        
+        <Route path='/MultiPlayer' element={
+          <div className='flex font-bold min-h-screen bg-gradient-to-b  from-indigo-700 via-blue-600 to-blue-400'>
+            <div className='w-1/4 p-4'>
+              <Sidebar />
+            </div>
+            <div className='w-2/4 p-4'>
+              <LiveCompetetion />
+            </div>
+          </div>
+        } />
+        
+        <Route path='/leaderboard' element={
+          <div className='flex flex-col min-h-screen bg-gradient-to-b  from-indigo-700 via-blue-600 to-blue-400 '>
+            <div className='w-1/4 p-4'>
+              <Sidebar />
+            </div>
+          </div>
+        } />
+        
+        <Route path='/generalknowledge' element={
+          <div className='flex font-semibold min-h-screen bg-gradient-to-b from-indigo-700 via-blue-600 to-blue-400'>
+            <div className='w-2/4 p-4 justify-center text-center'>
+              <SinglePlayer />
+            </div>
+          </div>
+        } />
+      </Routes>
     </>
   );
 }
