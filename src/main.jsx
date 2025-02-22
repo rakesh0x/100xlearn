@@ -14,7 +14,7 @@ root.render(
     <Auth0Provider
       domain={domain}
       clientId={clientId}
-      authorizationParams={{ redirect_uri: "http://localhost:5173/callback" }}
+      authorizationParams={{ redirect_uri: window.location.uri }}
     >
       <App />
     </Auth0Provider>
