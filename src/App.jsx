@@ -6,14 +6,12 @@ import { SubjectsCard, SubjectsCard2 } from './DashBoard/Singleplayer';
 import { SinglePlayer } from './Navigation/Pages/Quizzes';
 import { LiveCompetetion } from './Navigation/Pages/MultiplayerGames';
 import { Landing } from "./Navigation/Landing";
-import { CallbackPage }  from './Navigation/Pages/callbackpage';
 
 function App() {
   return (
     <>
       <Routes>
         <Route path='/' element={<Landing />} />
-        <Route path='/callback' element={<CallbackPage />} />
         <Route path="/singleplayer" element={
           <div className="flex font-bold min-h-screen bg-gradient-to-r  from-indigo-700 via-blue-600 to-blue-400">
               <Sidebar />
