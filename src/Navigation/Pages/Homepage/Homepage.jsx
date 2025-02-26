@@ -1,7 +1,15 @@
-import React from 'react';
-import { ArrowRight,Trophy, Users, Sparkles } from 'lucide-react';
+import React, { useEffect } from 'react';
+import { ArrowRight,Trophy, Brain, Users, Sparkles } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 export const Homepage = () => {
+  const navigate  = useNavigate();
+
+  const HandleRedirect = () => {
+    navigate("/loading")  
+  }
+
     return (
       <div id="FirstPage" className="min-h-screen flex flex-col relative overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
@@ -50,7 +58,7 @@ export const Homepage = () => {
           <motion.button 
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={}
+            onClick={() => HandleRedirect()}
             className="bg-white text-indigo-700 px-6 py-2 rounded-full font-semibold hover:bg-indigo-100 transition-all duration-300 shadow-lg hover:shadow-xl"
           >
             Get Started
@@ -85,7 +93,6 @@ export const Homepage = () => {
               Challenge yourself, compete with others, and learn something new every day in our engaging quiz environment.
             </motion.p>
             
-            {/* Features Grid */}
             <motion.div 
               initial={{ y: 40, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}

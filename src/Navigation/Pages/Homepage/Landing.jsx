@@ -8,9 +8,6 @@ export const Landing = () => {
   const [darkMode, setDarkMode] = useState(false);
   const navigate = useNavigate();
 
-
-  
-  
   return (
     <>
       <nav className="bg-gray-900/95 backdrop-blur-md fixed w-full top-0 p-4 shadow-lg z-50">
@@ -20,7 +17,7 @@ export const Landing = () => {
             className="text-gray-100 text-3xl font-bold flex items-center gap-2"
             onClick={() => navigate("/")}
           >
-            <Brain className="w-8 h-8" />
+            <Brain className="w-8 h-8"/>
             100xLearn
           </motion.button>
 
@@ -138,7 +135,6 @@ export const Landing = () => {
             transition={{ delay: 0.4 }}
             className="bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-xl mb-8"
           >
-            <h2 className="text-2xl font-semibold mb-4">Welcome, {user.name}! 🎉</h2>
             <p className="text-lg mb-6 opacity-90">Ready to challenge yourself with exciting quizzes?</p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

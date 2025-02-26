@@ -8,5 +8,10 @@ export default defineConfig({
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
-  },
+  }, server: {
+    headers: {
+      "Cross-origin-opener-Policy" : "same-origin-allow-popups",
+      "Cross-origin-Embedder-Policy" : "require-core"
+    }
+  }
 })

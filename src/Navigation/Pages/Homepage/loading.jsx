@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {  Brain } from "lucide-react"
+import { useNavigate } from "react-router-dom";
 
 export const LoadingComp = () => {
+
+  const  navigate  = useNavigate();
+
+  useEffect(() => {
+     setTimeout(() => {
+      navigate("/Login")
+    }, 3000);
+  })
+  
     return (  
       <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-indigo-700 via-blue-600 to-blue-400">
         <div className="relative"> 
