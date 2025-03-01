@@ -3,7 +3,6 @@ import {  Brain } from "lucide-react"
 import { useNavigate } from "react-router-dom";
 
 export const LoadingComp = () => {
-
   const  navigate  = useNavigate();
 
   useEffect(() => {

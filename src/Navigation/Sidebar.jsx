@@ -12,7 +12,7 @@ export const Sidebar = ({ children }) => {
   const [activeHover, setActiveHover] = useState(null);
 
   const menuItems = [
-    { name: "Home", icon: <FaHome />, path: "/" },
+    { name: "Home", icon: <FaHome />, path: "/DashBoard" },
     { name: "LeaderBoard", icon: <LeaderboardIcon/>, path: "/leaderboard" },
     { name: "Multiplayer", icon: <GroupAddIcon/>, path: "/MultiPlayer"}
   ];              

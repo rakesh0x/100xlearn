@@ -22,7 +22,7 @@ function App() {
               <Login />
             </div>
             } />
-          <Route path='/DashBoard' element={ <Landing />} />
+          <Route path='/DashBoard' element={<Landing />} />
           <Route path="/singleplayer" element={
             <div className="flex font-bold min-h-screen bg-gradient-to-r  from-indigo-700 via-blue-600 to-blue-400">
                 <Sidebar />

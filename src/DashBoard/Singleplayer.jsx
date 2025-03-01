@@ -5,6 +5,7 @@ import { Brain, Globe2, ArrowRight, Users, Trophy } from 'lucide-react';
 import cardcs from '../assets/cardcs.jpg';
 import gk from '../assets/gk.jpg';
 
+
 export const SubjectsCard = () => {
     const navigate = useNavigate();
 
