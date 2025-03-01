@@ -14,7 +14,7 @@ function App() {
   return (
     <BrowserRouter>
       <>
-        <Routes>
+        <Routes>  
           <Route path='/' element={<Homepage />} />
           <Route path='/loading' element={<LoadingComp/>} />
           <Route path='/Login' element={

@@ -126,6 +126,7 @@ export const Homepage = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="group bg-white text-indigo-700 px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-300 transition-all duration-300 shadow-xl hover:shadow-2xl flex items-center justify-center mx-auto space-x-2"
+              onClick={() => HandleRedirect()}
             >
               <span>Start Your Journey</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
