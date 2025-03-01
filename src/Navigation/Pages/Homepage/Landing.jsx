@@ -8,6 +8,11 @@ export const Landing = () => {
   const [darkMode, setDarkMode] = useState(false);
   const navigate = useNavigate();
 
+
+  const BackRedirect = () => {
+    navigate("/")
+  }
+
   return (
     <>
       <nav className="bg-gray-900/95 backdrop-blur-md fixed w-full top-0 p-4 shadow-lg z-50">
@@ -150,7 +155,7 @@ export const Landing = () => {
               <motion.button 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}
+                onClick={() => BackRedirect()}
                 className="bg-red-500 text-white px-6 py-3 text-lg font-semibold rounded-xl shadow-lg hover:bg-red-600 transition-all duration-300"
               >
                 Logout
