@@ -1,6 +1,7 @@
 import React from "react";
 import { GoogleLogin } from "@react-oauth/google";
 import { useNavigate } from "react-router-dom";
+import  {  jwtDecode } from "jwt-decode";
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -19,8 +20,14 @@ export const Login = () => {
               <GoogleLogin
                 onSuccess={(credentialResponse) => {
                   console.log("LOGIN SUCCESSFUL", credentialResponse);
-                  navigate("/DashBoard");
-                  
+
+                  if ( credentialResponse && credentialResponse.credential ){
+                    const decoded = jwtDecode(credentialResponse && credentialResponse.credential)
+                    const username = decoded.name
+                    console.log("Username", username)
+
+                    navigate("/DashBoard")
+                  }
                 }}
                 onError={() => {
                   console.log("LOGIN UNSUCCESSFUL");
@@ -42,4 +49,3 @@ export const Login = () => {
     </div>
   );
 };
-
