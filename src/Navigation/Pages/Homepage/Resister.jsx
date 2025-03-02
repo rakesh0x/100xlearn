@@ -3,7 +3,7 @@ import { GoogleLogin } from "@react-oauth/google";
 import { useNavigate } from "react-router-dom";
 import  {  jwtDecode } from "jwt-decode";
 
-export const Login = () => {
+export const Login = ( ) => {
   const navigate = useNavigate();
 
   return (
@@ -25,7 +25,6 @@ export const Login = () => {
                     const decoded = jwtDecode(credentialResponse && credentialResponse.credential)
                     const username = decoded.name
                     console.log("Username", username)
-
                     navigate("/DashBoard")
                   }
                 }}

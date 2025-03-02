@@ -9,6 +9,7 @@ import { Homepage } from './Navigation/Pages/Homepage/Homepage';
 import { LoadingComp } from './Navigation/Pages/Homepage/loading';
 import { Login } from './Navigation/Pages/Homepage/Resister';
 import { Landing } from "./Navigation/Pages/Homepage/Landing"
+import { ComingSoonPage } from './DashBoard/SOON.JSX';
 
 function App() {
   return (
@@ -50,20 +51,23 @@ function App() {
           } />
           
           <Route path='/MultiPlayer' element={
-            <div className='flex font-bold min-h-screen bg-gradient-to-b  from-indigo-700 via-blue-600 to-blue-400'>
+            <div className='flex  flex-col font-bold min-h-screen bg-gradient-to-b  from-indigo-700 via-blue-600 to-blue-400'>
               <div className='w-1/4 p-4'>
                 <Sidebar />
-              </div>
-              <div className='w-2/4 p-4'>
-                <LiveCompetetion />
+              </div>              
+              <div>
+              <ComingSoonPage />
               </div>
             </div>
           } />
           
           <Route path='/leaderboard' element={
-            <div className='flex flex-col min-h-screen bg-gradient-to-b  from-indigo-700 via-blue-600 to-blue-400 '>
+            <div className='flex flex-col font-semibold min-h-screen bg-gradient-to-b  from-indigo-700 via-blue-600 to-blue-400 '>
               <div className='w-1/4 p-4'>
                 <Sidebar />
+              </div>
+              <div>
+                <ComingSoonPage/>
               </div>
             </div>
           } />
