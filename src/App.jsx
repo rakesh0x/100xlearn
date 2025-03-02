@@ -9,7 +9,7 @@ import { Homepage } from './Navigation/Pages/Homepage/Homepage';
 import { LoadingComp } from './Navigation/Pages/Homepage/loading';
 import { Login } from './Navigation/Pages/Homepage/Resister';
 import { Landing } from "./Navigation/Pages/Homepage/Landing"
-import { ComingSoonPage } from './DashBoard/SOON.JSX';
+import { ComingSoonPage } from './DashBoard/soon.jsx';
 
 function App() {
   return (
